@@ -258,7 +258,7 @@ function CompoundInterest() {
                             <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
                             <XAxis dataKey="year" tick={{ fontSize: 10, fill: axisColor }} tickLine={false} axisLine={false} />
                             <YAxis tickFormatter={fmtShort} tick={{ fontSize: 10, fill: axisColor }} tickLine={false} axisLine={false} width={48} />
-                            <Tooltip formatter={(v: unknown, name: string) => [formatCurrency(v as number), name === 'withInterest' ? 'With Interest' : 'Principal']} contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8, fontSize: 12 }} labelStyle={{ fontWeight: 600 }} />
+                            <Tooltip formatter={((v: unknown, name: string) => [formatCurrency(v as number), name === 'withInterest' ? 'With Interest' : 'Principal']) as any} contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8, fontSize: 12 }} labelStyle={{ fontWeight: 600 }} />
                             <Area type="monotone" dataKey="withoutInterest" stroke={flatColor} strokeWidth={1.5} fill={flatColor} fillOpacity={0.2} dot={false} />
                             <Area type="monotone" dataKey="withInterest" stroke={MONEY} strokeWidth={2} fill="url(#ciGrad)" dot={false} />
                         </AreaChart>
@@ -348,7 +348,7 @@ function InvestmentReturn() {
                             <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
                             <XAxis dataKey="year" tick={{ fontSize: 10, fill: axisColor }} tickLine={false} axisLine={false} />
                             <YAxis tickFormatter={fmtShort} tick={{ fontSize: 10, fill: axisColor }} tickLine={false} axisLine={false} width={48} />
-                            <Tooltip formatter={(v: unknown, name: string) => [formatCurrency(v as number), name === 'value' ? 'Total Value' : 'Contributed']} contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8, fontSize: 12 }} labelStyle={{ fontWeight: 600 }} />
+                            <Tooltip formatter={((v: unknown, name: string) => [formatCurrency(v as number), name === 'value' ? 'Total Value' : 'Contributed']) as any} contentStyle={{ background: tooltipBg, border: `1px solid ${tooltipBorder}`, borderRadius: 8, fontSize: 12 }} labelStyle={{ fontWeight: 600 }} />
                             <Area type="monotone" dataKey="contributed" stroke={contribColor} strokeWidth={1.5} fill={contribColor} fillOpacity={0.25} dot={false} />
                             <Area type="monotone" dataKey="value" stroke={MONEY} strokeWidth={2} fill="url(#irGrad)" dot={false} />
                         </AreaChart>

@@ -15,8 +15,6 @@ const DEFAULT_TAXES: TaxRow[] = [
   { id: 'medicare', name: 'Medicare', mode: 'dollar', value: 0 },
 ]
 
-const MOBILE_TABS: MobileTab[] = ['income', 'taxes', 'expenses', 'planning']
-
 export default function App() {
   const [timeframe, setTimeframe] = useState<Timeframe>('monthly')
   const [incomeRows, setIncomeRows] = useState<IncomeRow[]>(() => [
@@ -189,7 +187,6 @@ export default function App() {
                 incomeRows={incomeRows}
                 setIncomeRows={setIncomeRows}
                 timeframe={timeframe}
-                onTimeframeChange={handleTimeframeChange}
                 totalIncome={totalIncome}
               />
             </div>
