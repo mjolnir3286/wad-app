@@ -1,0 +1,73 @@
+BUDGET APP PLAN
+===============
+
+STACK
+- Vite + React + TypeScript
+- ESLint
+- Tailwind CSS
+- No user accounts, no backend, no data tracking
+
+DATA PERSISTENCE
+- Export to CSV (browser-native download, Blob + anchor tag)
+- Default filename: budget-export-YYYY-MM-DD-HHMM.csv
+- Import CSV fully restores all rows and values exactly as they were
+
+STYLING
+- Dark green background
+- Bright green for money/positive values
+- Bright orange for details/decorations
+- Bright red for negative values
+
+LAYOUT
+- Sticky header bar always visible: large net take-home, updates live
+  - Sub-values shown: Gross | Taxes | Expenses
+- Desktop: single scrolling page — Income > Taxes > Expenses sections + Planning tab
+- Mobile: tabbed navigation — Income, Taxes, Expenses, Planning
+- Planning is always a separate tab on both desktop and mobile
+
+INCOME SECTION
+- Income entry field
+- Timeframe dropdown: Hourly, Weekly, Bi-Weekly, Monthly, Yearly
+- When Hourly selected: show Hours/Week field (defaults to 40)
+- Switching away from Hourly: use hours/week for conversion
+  - If hours/week is empty or 0: show inline warning, leave values unconverted until filled
+  - Once valid hours/week entered, conversion fires automatically
+- When timeframe changes, ALL entered values (taxes, expenses) recalculate to match
+
+TAXES SECTION
+- Same row-based pattern as Expenses
+- Default rows: Federal Income, State Income, Social Security, Medicare
+- Each row: editable tax name | $/% toggle | amount field | delete button
+- Percentage calculated against gross income
+- "Add Tax" button for custom entries
+- Total taxes summed live from all rows
+
+EXPENSES SECTION
+- "Add Expense" button
+- Each row:
+  - Expense name (text input)
+  - Type dropdown: Bill, Subscription, Payment, Food, Gas, Entertainment, Other
+  - "Other" reveals inline text input (limited chars, allowed specials: - ' / . &)
+  - Amount field (always treated as negative, accepts negative sign)
+  - Delete button
+- All totals update live on add/delete/edit
+
+DYNAMIC UPDATES
+- All values update in real time as user types or changes any field
+- All entered values recalculate when timeframe changes
+  - e.g. $200/month expense switched to weekly = $200 / (52/12) ~= $46.15
+
+PLANNING TAB (standalone, no integration with budget)
+- Savings goal calculator: reach $X saving $Y per period, with/without interest
+- Compound interest estimator on savings
+- Simple investment return estimator
+
+BUILD ORDER
+1. Install Tailwind + set up base color theme
+2. App shell: sticky header + desktop/mobile layout
+3. Income section: field, timeframe dropdown, hours/week
+4. Taxes section: default rows, add/delete, $/% toggle
+5. Expenses section: add/delete rows
+6. Wire live calculations to header totals
+7. CSV export/import
+8. Planning tab calculators
