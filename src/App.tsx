@@ -115,7 +115,7 @@ export default function App() {
               : 'text-gray-500 dark:text-neutral-400 border-transparent hover:text-accent'
               }`}
           >
-            <img src="/budget.png" alt="" className="h-5 w-5 object-contain" />
+            <img src={`${import.meta.env.BASE_URL}budget.png`} alt="" className="h-5 w-5 object-contain" />
             Budget
           </button>
           <button
@@ -125,7 +125,7 @@ export default function App() {
               : 'text-gray-500 dark:text-neutral-400 border-transparent hover:text-accent'
               }`}
           >
-            <img src="/plan.png" alt="" className="h-5 w-5 object-contain" />
+            <img src={`${import.meta.env.BASE_URL}plan.png`} alt="" className="h-5 w-5 object-contain" />
             Plan
           </button>
         </div>
@@ -134,10 +134,10 @@ export default function App() {
       {/* Mobile tab bar */}
       <nav className="md:hidden flex border-b border-gray-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-900 sticky top-16 z-40">
         {([
-          { id: 'income' as MobileTab, label: 'Income', icon: '/income.png', activeClass: 'text-money border-b-2 border-money' },
-          { id: 'taxes' as MobileTab, label: 'Taxes', icon: '/tax.png', activeClass: 'text-danger border-b-2 border-danger' },
-          { id: 'expenses' as MobileTab, label: 'Expenses', icon: '/expenses.png', activeClass: 'text-danger border-b-2 border-danger' },
-          { id: 'planning' as MobileTab, label: 'Plan', icon: '/plan.png', activeClass: 'text-accent border-b-2 border-accent' },
+          { id: 'income' as MobileTab, label: 'Income', icon: `${import.meta.env.BASE_URL}income.png`, activeClass: 'text-money border-b-2 border-money' },
+          { id: 'taxes' as MobileTab, label: 'Taxes', icon: `${import.meta.env.BASE_URL}tax.png`, activeClass: 'text-danger border-b-2 border-danger' },
+          { id: 'expenses' as MobileTab, label: 'Expenses', icon: `${import.meta.env.BASE_URL}expenses.png`, activeClass: 'text-danger border-b-2 border-danger' },
+          { id: 'planning' as MobileTab, label: 'Plan', icon: `${import.meta.env.BASE_URL}plan.png`, activeClass: 'text-accent border-b-2 border-accent' },
         ]).map(tab => (
           <button
             key={tab.id}
@@ -160,7 +160,7 @@ export default function App() {
         >
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-accent text-xl font-bold flex items-center gap-2">
-              <img src="/budget.png" alt="" className="h-9 w-9 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}budget.png`} alt="" className="h-9 w-9 object-contain" />
               Budget
             </h2>
             <div className="flex items-center gap-2">
@@ -180,7 +180,7 @@ export default function App() {
           <div className="space-y-6">
             <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-gray-200 dark:border-neutral-700">
               <h3 className="text-money text-lg font-bold mb-4 flex items-center gap-2">
-                <img src="/income.png" alt="" className="h-7 w-7 object-contain" />
+                <img src={`${import.meta.env.BASE_URL}income.png`} alt="" className="h-7 w-7 object-contain" />
                 Income
               </h3>
               <IncomeSection
@@ -192,7 +192,7 @@ export default function App() {
             </div>
             <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-gray-200 dark:border-neutral-700">
               <h3 className="text-danger text-lg font-bold mb-4 flex items-center gap-2">
-                <img src="/tax.png" alt="" className="h-7 w-7 object-contain" />
+                <img src={`${import.meta.env.BASE_URL}tax.png`} alt="" className="h-7 w-7 object-contain" />
                 Taxes
               </h3>
               <TaxesSection
@@ -203,7 +203,7 @@ export default function App() {
             </div>
             <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-gray-200 dark:border-neutral-700">
               <h3 className="text-danger text-lg font-bold mb-4 flex items-center gap-2">
-                <img src="/expenses.png" alt="" className="h-7 w-7 object-contain" />
+                <img src={`${import.meta.env.BASE_URL}expenses.png`} alt="" className="h-7 w-7 object-contain" />
                 Expenses
               </h3>
               <ExpensesSection
@@ -221,7 +221,7 @@ export default function App() {
         >
           <h2 className="text-money text-xl font-bold mb-4 flex items-center justify-between gap-2">
             <span className="flex items-center gap-2">
-              <img src="/income.png" alt="" className="h-9 w-9 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}income.png`} alt="" className="h-9 w-9 object-contain" />
               Income
             </span>
             <div className="flex items-center gap-2">
@@ -252,7 +252,7 @@ export default function App() {
         >
           <h2 className="text-danger text-xl font-bold mb-4 flex items-center justify-between gap-2">
             <span className="flex items-center gap-2">
-              <img src="/tax.png" alt="" className="h-9 w-9 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}tax.png`} alt="" className="h-9 w-9 object-contain" />
               Taxes
             </span>
             <div className="flex items-center gap-2">
@@ -282,7 +282,7 @@ export default function App() {
         >
           <h2 className="text-danger text-xl font-bold mb-4 flex items-center justify-between gap-2">
             <span className="flex items-center gap-2">
-              <img src="/expenses.png" alt="" className="h-9 w-9 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}expenses.png`} alt="" className="h-9 w-9 object-contain" />
               Expenses
             </span>
             <div className="flex items-center gap-2">
@@ -312,7 +312,7 @@ export default function App() {
             ${desktopView === 'planning' ? 'md:block' : 'md:hidden'}`}
         >
           <h2 className="text-accent text-xl font-bold mb-4 flex items-center gap-2">
-            <img src="/plan.png" alt="" className="h-9 w-9 object-contain" />
+            <img src={`${import.meta.env.BASE_URL}plan.png`} alt="" className="h-9 w-9 object-contain" />
             Plan
           </h2>
           <PlanningTab />

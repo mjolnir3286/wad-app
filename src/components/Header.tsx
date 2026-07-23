@@ -31,7 +31,7 @@ export default function Header({
                 {/* Left: Logo */}
                 <div className="shrink-0 h-20 w-40 overflow-hidden flex justify-center">
                     <img
-                        src="/wad.png"
+                        src={`${import.meta.env.BASE_URL}wad.png`}
                         alt="Wad logo"
                         className="h-full w-auto object-contain scale-[2] origin-center"
                     />
